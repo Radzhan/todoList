@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import config from "./config";
 import taskRouter from "./router/Task";
 import usersRouter from "./router/User";
 
@@ -12,7 +13,7 @@ app.use("/tasks", taskRouter);
 
 const run = async () => {
   mongoose.set("strictQuery", false);
-  await mongoose.connect("mongodb://localhost/Todoist");
+  await mongoose.connect(config.db);
 
   app.listen(port, () => {
     console.log("we are live on " + port);
