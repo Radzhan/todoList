@@ -17,11 +17,11 @@ const TaskSchema = new Schema({
     type: String,
     required: true,
   },
-  description: String,
   status: {
     type: String,
     required: true,
   },
+  description: String,
 });
 
 const taskHistory = mongoose.model("taskHistory", TaskSchema);
